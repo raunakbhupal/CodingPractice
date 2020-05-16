@@ -10,6 +10,6 @@ public class LargestNumber {
             l1.add(i,sc.next());
         }
 	Collections.sort(l1,(a,b)->(b+a).compareTo(a+b));
-        l1.stream().forEach(System.out::print);
+        l1.stream().forEach(System.out::print); //Using Java Streams and printing via lambda operator
     }
 }
