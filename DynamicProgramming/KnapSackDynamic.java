@@ -62,7 +62,7 @@ public class KnapSackDynamic
 	}
 }
 
-class ArrayStrucutre
+class ArrayStructure
 {
 	int weight;
 	int price;
