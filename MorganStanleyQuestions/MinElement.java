@@ -18,7 +18,7 @@ class GFG {
 	}
 	static int findMin(int a[],int l,int h){
 	    while(l<h){
-	        int mid=l+(h-l)/2;
+	        int mid=l+h/2;
 	        if(a[mid]==a[h])
 	            h--;
 	        else if(a[mid]>a[h])
