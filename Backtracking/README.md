@@ -11,3 +11,5 @@ Video for CombinationSum.java : https://www.youtube.com/watch?v=GBKI9VSKdGg
 Video for CombinationSum2.java : https://www.youtube.com/watch?v=rSA3t6BDDwg
 
 Video for NQueens.java : https://www.youtube.com/watch?v=Ph95IHmRp5M
+
+Video for NQueens2.java : https://www.youtube.com/watch?v=nalYyLZgvCY
