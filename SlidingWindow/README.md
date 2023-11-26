@@ -2,6 +2,8 @@ References for Sliding Window Problems:
 
 Blog : https://leetcode.com/problems/frequency-of-the-most-frequent-element/solutions/1175088/C++-Maximum-Sliding-Window-Cheatsheet-Template/
 
+Blog2 (At Most to Equal Trick) : https://leetcode.com/problems/count-vowel-substrings-of-a-string/solutions/1563765/c-on-time-sliding-window/comments/1141941/ 
+
 Video for MostFrequent.java : https://www.youtube.com/watch?v=vgBrQ0NM5vE
 
 Video for LongestSubstring.java : https://www.youtube.com/watch?v=wiGpQwVHdE0
