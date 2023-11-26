@@ -11,3 +11,5 @@ Video for LongestRepeatingCharacterReplacement.java : https://www.youtube.com/wa
 Video for MaxConsecutiveOnes and LongestSubarrayOfOnes : https://www.youtube.com/watch?v=nKhteIRZ2Ok
 
 Video for MaximumErasureValue.java : https://www.youtube.com/watch?v=7YqscdGIS6Y
+
+Video for MakeArrayContinuos.java : https://www.youtube.com/watch?v=Dd-yJylrcOY
