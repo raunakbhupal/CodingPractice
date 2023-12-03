@@ -11,3 +11,5 @@ Video for MinimumFallingPathSum.java : https://www.youtube.com/watch?v=Jg4u9S1n8
 Video for MinCostForTickets.java : https://www.youtube.com/watch?v=on7MoPbgefk
 
 Video for 2KeysKeyboard.java : https://www.youtube.com/watch?v=CIDdvpX66IY
+
+Video for PerfectSquares.java : https://www.youtube.com/watch?v=HLZLwjzIVGo
