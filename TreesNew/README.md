@@ -3,3 +3,5 @@ Blog : https://leetcode.com/discuss/study-guide/937307/Iterative-or-Recursive-or
 Video for BalancedBinaryTree.java : https://www.youtube.com/watch?v=QfJsau0ItOY
 
 Video for BottomLeftTreeValue.java : https://www.youtube.com/watch?v=u_by_cTsNJA
+
+Video for LCAOfBST.java : https://www.youtube.com/watch?v=gs2LMfuOR9k
