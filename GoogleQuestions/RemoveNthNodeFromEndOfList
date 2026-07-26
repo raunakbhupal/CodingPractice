@@ -1,0 +1,47 @@
+public ListNode removeNthFromEnd(ListNode head, int n) {
+    ListNode dummy = new ListNode(0);   // handles removing the head cleanly
+    dummy.next = head;
+
+    ListNode fast = dummy, slow = dummy;
+
+    // move fast n+1 steps ahead → creates the gap
+    for (int i = 0; i <= n; i++) {
+        fast = fast.next;
+    }
+
+    // move both until fast falls off the end
+    while (fast != null) {
+        fast = fast.next;
+        slow = slow.next;
+    }
+
+    // slow is now just BEFORE the target → skip over it
+    slow.next = slow.next.next;
+
+    return dummy.next;
+}
+
+// 2 pass
+public ListNode removeNthFromEnd(ListNode head, int n) {
+    ListNode dummy = new ListNode(0);
+    dummy.next = head;
+
+    // Pass 1: count length
+    int length = 0;
+    ListNode curr = head;
+    while (curr != null) {
+        length++;
+        curr = curr.next;
+    }
+
+    // Pass 2: walk to the node BEFORE the target
+    ListNode prev = dummy;
+    for (int i = 0; i < length - n; i++) {
+        prev = prev.next;
+    }
+
+    // remove the target
+    prev.next = prev.next.next;
+
+    return dummy.next;
+}
