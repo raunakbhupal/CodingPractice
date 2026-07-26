@@ -1,0 +1,26 @@
+class MedianFinder {
+    private PriorityQueue<Integer> small;   // max-heap: smaller half
+    private PriorityQueue<Integer> large;   // min-heap: larger half
+
+    public MedianFinder() {
+        small = new PriorityQueue<>((a, b) -> b - a);   // max-heap
+        large = new PriorityQueue<>();                   // min-heap (default)
+    }
+
+    public void addNum(int num) {
+        small.offer(num);                    // 1. always add to small first
+        large.offer(small.poll());           // 2. move small's max over to large
+
+        // 3. rebalance: small should be same size or one bigger
+        if (small.size() < large.size()) {
+            small.offer(large.poll());
+        }
+    }
+
+    public double findMedian() {
+        if (small.size() > large.size()) {
+            return small.peek();             // odd count → small's top
+        }
+        return (small.peek() + large.peek()) / 2.0;   // even → average of tops
+    }
+}
