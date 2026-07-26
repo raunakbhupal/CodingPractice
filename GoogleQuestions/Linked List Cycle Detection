@@ -1,0 +1,11 @@
+public boolean hasCycle(ListNode head) {
+    ListNode slow = head, fast = head;
+
+    while (fast != null && fast.next != null) {
+        slow = slow.next;           // 1 step
+        fast = fast.next.next;      // 2 steps
+
+        if (slow == fast) return true;   // they met → cycle
+    }
+    return false;   // fast hit the end → no cycle
+}
