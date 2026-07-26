@@ -1,0 +1,42 @@
+public String minWindow(String s, String t) {
+    if (s.length() < t.length()) return "";
+
+    // what we need: count of each char in t
+    Map<Character, Integer> need = new HashMap<>();
+    for (char c : t.toCharArray()) {
+        need.put(c, need.getOrDefault(c, 0) + 1);
+    }
+
+    int required = need.size();      // number of DISTINCT chars we must satisfy
+    int formed = 0;                  // how many distinct chars currently satisfied
+
+    Map<Character, Integer> window = new HashMap<>();
+    int left = 0;
+    int[] best = {-1, 0, 0};         // {length, left, right} of best window found
+
+    for (int right = 0; right < s.length(); right++) {
+        char c = s.charAt(right);
+        window.put(c, window.getOrDefault(c, 0) + 1);
+
+        // did this char just fully satisfy its requirement?
+        if (need.containsKey(c) && window.get(c).intValue() == need.get(c).intValue()) {
+            formed++;
+        }
+
+        // window is valid → try shrinking from the left
+        while (formed == required) {
+            if (best[0] == -1 || right - left + 1 < best[0]) {
+                best = new int[]{right - left + 1, left, right};
+            }
+
+            char leftChar = s.charAt(left);
+            window.put(leftChar, window.get(leftChar) - 1);
+            if (need.containsKey(leftChar) && window.get(leftChar) < need.get(leftChar)) {
+                formed--;            // removing this broke validity
+            }
+            left++;
+        }
+    }
+
+    return best[0] == -1 ? "" : s.substring(best[1], best[2] + 1);
+}
