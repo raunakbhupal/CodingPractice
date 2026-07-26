@@ -1,0 +1,18 @@
+public boolean isValid(String s) {
+    Deque<Character> stack = new ArrayDeque<>();
+
+    for (char c : s.toCharArray()) {
+        if (c == '(' || c == '[' || c == '{') {
+            stack.push(c);                          // opener → push
+        } else {
+            // closer → must match top of stack
+            if (stack.isEmpty()) return false;      // nothing to close
+            char top = stack.pop();
+            if (c == ')' && top != '(') return false;
+            if (c == ']' && top != '[') return false;
+            if (c == '}' && top != '{') return false;
+        }
+    }
+
+    return stack.isEmpty();     // leftover openers = unclosed = invalid
+}
