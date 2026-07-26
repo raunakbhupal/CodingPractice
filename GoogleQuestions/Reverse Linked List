@@ -1,0 +1,13 @@
+public ListNode reverseList(ListNode head) {
+    ListNode prev = null;        // reversed part starts empty
+    ListNode curr = head;
+
+    while (curr != null) {
+        ListNode next = curr.next;   // 1. SAVE the next node before losing it
+        curr.next = prev;            // 2. FLIP current's pointer backward
+        prev = curr;                 // 3. advance prev to current
+        curr = next;                 // 4. advance current to saved next
+    }
+
+    return prev;    // prev is the new head (curr is null at the end)
+}
