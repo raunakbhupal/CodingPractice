@@ -1,0 +1,34 @@
+public void reorderList(ListNode head) {
+    if (head == null || head.next == null) return;
+
+    // ---- Step 1: find middle (slow ends at middle) ----
+    ListNode slow = head, fast = head;
+    while (fast.next != null && fast.next.next != null) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    // slow is now at the end of the first half
+
+    // ---- Step 2: reverse the second half ----
+    ListNode second = slow.next;
+    slow.next = null;                    // split the list into two halves
+    ListNode prev = null;
+    while (second != null) {
+        ListNode next = second.next;
+        second.next = prev;
+        prev = second;
+        second = next;
+    }
+    second = prev;                        // head of reversed second half
+
+    // ---- Step 3: merge the two halves alternately ----
+    ListNode first = head;
+    while (second != null) {
+        ListNode t1 = first.next;
+        ListNode t2 = second.next;
+        first.next = second;              // first → second
+        second.next = t1;                 // second → next first
+        first = t1;
+        second = t2;
+    }
+}
