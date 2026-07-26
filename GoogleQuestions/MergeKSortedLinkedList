@@ -1,0 +1,52 @@
+// naive
+public ListNode mergeKLists(ListNode[] lists) {
+    if (lists.length == 0) return null;
+    ListNode result = lists[0];
+    for (int i = 1; i < lists.length; i++) {
+        result = mergeTwoLists(result, lists[i]);
+    }
+    return result;
+}
+
+// divide and conquer
+public ListNode mergeKLists(ListNode[] lists) {
+    if (lists == null || lists.length == 0) return null;
+    return merge(lists, 0, lists.length - 1);
+}
+
+private ListNode merge(ListNode[] lists, int left, int right) {
+    if (left == right) return lists[left];        // single list, return it
+    int mid = left + (right - left) / 2;
+    ListNode l1 = merge(lists, left, mid);        // merge left half
+    ListNode l2 = merge(lists, mid + 1, right);   // merge right half
+    return mergeTwoLists(l1, l2);                 // combine the two halves
+}
+
+// the Merge Two Lists helper from before
+private ListNode mergeTwoLists(ListNode a, ListNode b) {
+    ListNode dummy = new ListNode(0), tail = dummy;
+    while (a != null && b != null) {
+        if (a.val <= b.val) { tail.next = a; a = a.next; }
+        else                { tail.next = b; b = b.next; }
+        tail = tail.next;
+    }
+    tail.next = (a != null) ? a : b;
+    return dummy.next;
+}
+
+// heap
+public ListNode mergeKLists(ListNode[] lists) {
+    PriorityQueue<ListNode> heap = new PriorityQueue<>((a, b) -> a.val - b.val);
+    for (ListNode node : lists) {
+        if (node != null) heap.offer(node);
+    }
+
+    ListNode dummy = new ListNode(0), tail = dummy;
+    while (!heap.isEmpty()) {
+        ListNode smallest = heap.poll();      // global min of current fronts
+        tail.next = smallest;
+        tail = tail.next;
+        if (smallest.next != null) heap.offer(smallest.next);  // push its successor
+    }
+    return dummy.next;
+}
